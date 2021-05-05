@@ -20,16 +20,8 @@ const galleryListEl = document.querySelector('ul');
 galleryListEl.style.display = 'flex';
 
 const elements = images.map(({ url, alt }) => {
-    const galleryItemEl = document.createElement('li');
-  
-    const galleryImageEl = document.createElement('img');
-    galleryImageEl.src = url;
-    galleryImageEl.alt = alt;
-    galleryImageEl.style.width = '100%';
-    galleryImageEl.style.height = '100%';
-    galleryItemEl.appendChild(galleryImageEl);
 
-    return galleryItemEl;
+  galleryListEl.insertAdjacentHTML('afterbegin', `<li><img src="${url}" alt="${alt}" width="100%" height="100%"></li>`)
+
 });
 
-galleryListEl.append(...elements);

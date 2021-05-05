@@ -3,29 +3,33 @@ const renderBtn = document.querySelector('[data-action="render"]');
 const destroyBtn = document.querySelector('[data-action="destroy"]');
 const boxesContainer = document.getElementById('boxes');
 
-//
-//input.addEventListener('input', onInputGetAmount);
- renderBtn.addEventListener('click', createBoxes);
+renderBtn.addEventListener('click', getAmount);
+destroyBtn.addEventListener('click', destroyBoxes);
 
-/* function onInputGetAmount(event) {
-    const amount = event.currentTarget.value;
-    const amountNumb = Number(amount);
-} */
-const amountNumb = 7;
-   
-    function createBoxes (amountNumb) {
-    
-        for (let i = 0; i < amountNumb; i++) {
-            const ingredientsItemEl = document.createElement('div');
-            boxesContainer.appendChild(ingredientsItemEl);
-        }
- 
-    }
-   
+function getAmount() {
+  const amount = + input.value;
+  createBoxes(amount);
+}
 
+function createBoxes(amount) {
+  const basicSize = 30;
+  const fragment = document.createDocumentFragment();
+  for (let i = 0; i < amount; i++) {
+    const size = basicSize + i * 10;
+    const div = document.createElement('div');
+    div.style.cssText = `width: ${size}px; height: ${size}px; background-color: rgba( ${random()} , ${random()} , ${random()} )`;
+    fragment.appendChild(div);
+  }
+  boxes.appendChild(fragment);
+}
 
+function destroyBoxes() {
+  boxes.innerHTML = "";
+}
 
-//Пока не знаю
+function random() {
+  return Math.floor(Math.random() * 256);
+}
 
 
     

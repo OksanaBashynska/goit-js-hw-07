@@ -8,8 +8,10 @@ function onInputUnfocus(event) {
     input.classList.add('validation-input')
     if (event.currentTarget.value.length === lengthNumb) {
         input.classList.add('valid')
+        input.classList.remove('invalid')
     } else {
         input.classList.add('invalid')
-        window.location.reload(true)
-    }
+         input.classList.remove('valid')
+    };
+    
 };
