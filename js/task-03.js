@@ -16,11 +16,11 @@ const images = [
   },
 ];
 
-const galleryListEl = document.querySelector('ul');
-  galleryListEl.style.display = 'flex';
+const galleryListEl = document.getElementById('gallery');
   const elements = images.map(({ url, alt }) => {
   return `<li><img src="${url}" alt="${alt}" width="100%" height="100%"></li>`
-  });
+  }).join('');
 
   galleryListEl.insertAdjacentHTML('afterbegin', elements)
 
+//Это просто капец.... Простите за мою невнимательность((
